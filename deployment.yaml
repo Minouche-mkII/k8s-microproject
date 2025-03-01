@@ -3,4 +3,18 @@ kind: Deployment
 metadata:
   name: k8s-microproject-deployment
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-microproject
+  template:
+    metadata:
+      labels:
+        app: k8s-microproject
+    spec:
+      containers:
+      - name: k8s-microproject-container
+        image: minouchemkii/k8s-microproject:latest
+        ports :
+        - containerPort: 3000
 
