@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: k8s-microproject-liveness-http
+spec:
+  containers:
+    - name: k8s-microproject-container
+      image: minouchemkii/k8s-microproject:latest
+    livenessProbe:
+      tcpSocket:
+        port: 3000
+      initialDelaySeconds: 5
+      periodSeconds: 10
